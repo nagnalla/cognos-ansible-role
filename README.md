@@ -12,7 +12,7 @@ This is an opinionated and automated way to install IBM InformationServer which 
 
    ```ini
    [hosts]
-   169.55.177.36
+<IP>
    ```
 
 1. Run the playbook
