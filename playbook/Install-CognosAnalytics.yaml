@@ -1,0 +1,27 @@
+---
+- name: Install Cognos Analytics
+  hosts: all
+  #become_method: dzdo
+  #become_user: cgadm
+  #become_flags: 'su - root -c'
+
+  tasks:
+    - name: Fetch the variables from var file
+      include_vars:
+        file: ../vars/main.yml
+
+    - name: Copy Binary File
+      copy:
+        src: "{{ LOCAL_DIR }}ca_instl_lnxi38664_2.0.2003191.bin"
+        dest: /apps/CognosAnalyticsPERF/ca_instl_lnxi38664_2.0.2003191.bin
+        force: no
+
+    - name: Copy over response file
+      ansible.builtin.template:
+        src: ../templates/responsefile.txt
+        dest: /apps/CognosAnalyticsPERF
+        
+    - name: Run installer
+      shell:
+        cmd: ./ca_instl_lnxi38664_2.0.2003191.bin -rsp responsefile.txt -verbose
+        chdir: /apps/CognosAnalyticsPERF

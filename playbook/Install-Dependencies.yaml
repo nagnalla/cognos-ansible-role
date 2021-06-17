@@ -1,0 +1,56 @@
+---
+- name: Install Cognos Analytics
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Fetch the variables from var file
+      include_vars:
+        file: ../vars/main.yml
+
+    - name: Install Cognos dependencies
+      yum:
+        name:
+          - glibc
+          - libstdc++
+          - nspr
+          - nss
+          - openmotif
+          - ksh
+          - unzip
+          - java-1.8.0
+        state: present
+
+    - name: Upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+
+    - name: Disable SELinux
+      ansible.posix.selinux:
+        state: disabled
+
+    - name: Increase msgmax
+      ansible.posix.sysctl:
+        name: kernel.msgmax
+        value: "65536"
+
+    - name: Increase msgmnb
+      ansible.posix.sysctl:
+        name: kernel.msgmnb
+        value: "65536"
+
+    - name: Increase kernel semaphores
+      ansible.posix.sysctl:
+        name: kernel.sem
+        value: "250 256000 32 1024"
+
+    - name: Increase number of open files
+      community.general.pam_limits:
+        domain: root
+        limit_type: "-"
+        limit_item: nofile
+        value: "65535"
+
+    - name: Increase ulimit
+      shell: ulimit -n 65535
