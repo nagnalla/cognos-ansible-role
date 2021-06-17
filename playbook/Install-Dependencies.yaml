@@ -56,7 +56,7 @@
       shell: ulimit -n 65535
           
     - name: Create Cognos Installation Directory
-        file:
-          path: /apps/CognosAnalyticsPERF
-          state: directory
-          mode: 0755
+      file:
+        path: /apps/CognosAnalyticsPERF
+        state: directory
+        mode: 0755
