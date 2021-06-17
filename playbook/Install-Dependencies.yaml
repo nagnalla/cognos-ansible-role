@@ -54,3 +54,9 @@
 
     - name: Increase ulimit
       shell: ulimit -n 65535
+          
+    - name: Create Cognos Installation Directory
+        file:
+          path: "{{ LOCAL_DIR }}"
+          state: directory
+          mode: 0755

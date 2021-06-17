@@ -9,7 +9,7 @@
     - name: Fetch the variables from var file
       include_vars:
         file: ../vars/main.yml
-
+        
     - name: Copy Binary File
       copy:
         src: "{{ LOCAL_DIR }}ca_instl_lnxi38664_2.0.2003191.bin"

@@ -1,2 +1,3 @@
 ---
 LOCAL_DIR: /home/ec2-user/
+COGNOS_INSTALL_DIR: /apps/CognosAnalytics
