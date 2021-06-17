@@ -1,4 +1,4 @@
-# DataStage playbook
+# Cognos playbook
 
 ## Scope
 
