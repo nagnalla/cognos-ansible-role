@@ -57,6 +57,6 @@
           
     - name: Create Cognos Installation Directory
         file:
-          path: "{{ LOCAL_DIR }}"
+          path: /apps/CognosAnalyticsPERF
           state: directory
           mode: 0755
