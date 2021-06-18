@@ -15,13 +15,20 @@
         src: "{{ LOCAL_DIR }}ca_instl_lnxi38664_2.0.2003191.bin"
         dest: /apps/CognosAnalyticsPERF/ca_instl_lnxi38664_2.0.2003191.bin
         force: no
+    
+    - name: Copy Zip File
+      copy:
+        src: "{{ LOCAL_DIR }}ca.zip"
+        dest: /apps/CognosAnalyticsPERF/ca.zip
+        force: no
 
     - name: Copy over response file
       ansible.builtin.template:
-        src: ../templates/responsefile.txt
+        src: ../templates/responsefile.properties
         dest: /apps/CognosAnalyticsPERF
-        
+
     - name: Run installer
-      shell:
-        cmd: ./ca_instl_lnxi38664_2.0.2003191.bin -rsp responsefile.txt -verbose
-        chdir: /apps/CognosAnalyticsPERF
+      command: /apps/CognosAnalyticsPERF/ca_instl_lnxi38664_2.0.2003191.bin 
+      args: ./setup -rsp responsefile.txt -verbose
+        chdir: /opt/is-suite/
+      
