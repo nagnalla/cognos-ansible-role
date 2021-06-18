@@ -16,21 +16,30 @@
       copy:
         src: "{{ LOCAL_DIR }}ca_instl_lnxi38664_2.0.2003191.bin"
         dest: /apps/Software/ca_instl_lnxi38664_2.0.2003191.bin
+        owner: ec2-user
+        group: ec2-user
+        mode: 0755
         force: no
 
     - name: Copy Zip File
       copy:
         src: "{{ LOCAL_DIR }}casrv-11.1.7-2012081900-linuxi38664h.zip"
         dest: /apps/Software/casrv-11.1.7-2012081900-linuxi38664h.zip
+        owner: ec2-user
+        group: ec2-user
+        mode: 0755
         force: no
 
     - name: Copy over response file
       ansible.builtin.template:
         src: ../templates/responsefile.properties
         dest: /apps/Software
+        owner: ec2-user
+        group: ec2-user
+        mode: 0755
+        force: no
 
     - name: Run installer
       command: /apps/Software/ca_instl_lnxi38664_2.0.2003191.bin -DREPO=/apps/Software -f /apps/Software/responsefile.properties -i silent -verbose
-      become: true
       args:
         chdir: /apps/CognosAnalyticsPERF/
