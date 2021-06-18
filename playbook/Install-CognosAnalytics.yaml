@@ -31,5 +31,6 @@
 
     - name: Run installer
       command: /apps/Software/ca_instl_lnxi38664_2.0.2003191.bin -DREPO=/apps/Software -f /apps/Software/responsefile.properties -i silent -verbose
+      become: yes
       args:
         chdir: /apps/CognosAnalyticsPERF/
