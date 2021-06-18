@@ -16,6 +16,12 @@
         dest: /apps/CognosAnalyticsPERF/ca_instl_lnxi38664_2.0.2003191.bin
         force: no
 
+    - name: Copy Zip File
+      copy:
+        src: "{{ LOCAL_DIR }}casrv-11.1.7-2012081900-linuxi38664h.zip"
+        dest: /apps/CognosAnalyticsPERF/casrv-11.1.7-2012081900-linuxi38664h.zip
+        force: no
+
     - name: Copy over response file
       ansible.builtin.template:
         src: ../templates/responsefile.properties
