@@ -60,3 +60,8 @@
         path: /apps/CognosAnalyticsPERF
         state: directory
         mode: 0755
+    - name: Create Cognos Softwares Directory
+      file:
+        path: /apps/Softwares
+        state: directory
+        mode: 0755
