@@ -1,8 +1,6 @@
 ---
 - name: Install Cognos Analytics
   hosts: all
-  become: true
-
   #become_method: dzdo
   #become_user: cgadm
   #become_flags: 'su - root -c'
