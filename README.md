@@ -2,7 +2,7 @@
 
 ## Scope
 
-This is an opinionated and automated way to install IBM InformationServer which includes DataStage.
+This is an opinionated and automated way to install IBM InformationServer which includes Cognos.
 
 ## Usage
 
