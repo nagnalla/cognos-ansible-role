@@ -30,7 +30,7 @@
 
     - name: Copy over response file
       ansible.builtin.template:
-        src: ../templates/responsefile.properties
+        src: ../templates/cognosresponsefile.properties
         dest: /apps/Software
         owner: ec2-user
         group: ec2-user
@@ -38,6 +38,6 @@
         force: no
 
     - name: Run installer
-      command: /apps/Software/ca_instl_lnxi38664_2.0.2003191.bin -DREPO=/apps/Software -f /apps/Software/responsefile.properties -i silent -verbose
+      command: /apps/Software/ca_instl_lnxi38664_2.0.2003191.bin -f /apps/Software/cognosresponsefile.properties -i silent
       args:
-        chdir: /apps/CognosAnalyticsPERF/
+        chdir: /apps/SilentInstallation/

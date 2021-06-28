@@ -57,7 +57,7 @@
           
     - name: Create Cognos Installation Directory
       file:
-        path: /apps/CognosAnalyticsPERF
+        path: /apps/SilentInstallation
         state: directory
         owner: ec2-user
         group: ec2-user
